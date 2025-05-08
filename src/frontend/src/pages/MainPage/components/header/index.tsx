@@ -14,7 +14,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface HeaderComponentProps {
-  flowType: "flows" | "components" | "mcp";
+  flowType: "flows" | "components" | "mcp" | "landing page" | "CRM";
   setFlowType: (flowType: "flows" | "components" | "mcp") => void;
   view: "list" | "grid";
   setView: (view: "list" | "grid") => void;
@@ -67,7 +67,7 @@ const HeaderComponent = ({
   };
 
   // Determine which tabs to show based on feature flag
-  const tabTypes = isMCPEnabled ? ["mcp", "flows"] : ["components", "flows"];
+  const tabTypes = isMCPEnabled ? ["mcp", "flows", "landing page", "CRM"] : ["components", "flows"];
 
   return (
     <>
@@ -121,7 +121,7 @@ const HeaderComponent = ({
             ))}
           </div>
           {/* Search and filters */}
-          {flowType !== "mcp" && (
+          {flowType === "flows" && (
             <div className="flex justify-between">
               <div className="flex w-full xl:w-5/12">
                 <Input
@@ -142,7 +142,7 @@ const HeaderComponent = ({
                         : "left-[6px] translate-x-full"
                     }`}
                   ></div>
-
+        
                   {/* Buttons */}
                   {["list", "grid"].map((viewType) => (
                     <Button

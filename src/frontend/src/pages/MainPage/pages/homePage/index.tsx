@@ -16,8 +16,9 @@ import ModalsComponent from "../../components/modalsComponent";
 import useFileDrop from "../../hooks/use-on-file-drop";
 import EmptyFolder from "../emptyFolder";
 import McpServerTab from "./components/McpServerTab";
+import LandingPageTab from "./components/LandingPageTab";
 
-const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
+const HomePage = ({ type }: { type: "flows" | "components" | "mcp" | "landing page" | "CRM"}) => {
   const [view, setView] = useState<"grid" | "list">(() => {
     const savedView = localStorage.getItem("view");
     return savedView === "grid" || savedView === "list" ? savedView : "list";
@@ -28,7 +29,7 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
   const [pageSize, setPageSize] = useState(12);
   const [search, setSearch] = useState("");
 
-  const [flowType, setFlowType] = useState<"flows" | "components" | "mcp">(
+  const [flowType, setFlowType] = useState<"flows" | "components" | "mcp" | "landing page" | "CRM">(
     type,
   );
   const myCollectionId = useFolderStore((state) => state.myCollectionId);
@@ -163,18 +164,9 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" }) => {
                       </a>
                       , or browse the store.
                     </div>
-                  ) : (
+                  ) : (                  
                     <div className="pt-2 text-center text-sm text-secondary-foreground">
-                      No saved or custom components. Learn more about{" "}
-                      <a
-                        href="https://docs.langflow.org/components-custom-components"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline"
-                      >
-                        creating custom components
-                      </a>
-                      , or browse the store.
+                      <LandingPageTab folderName={folderName} />
                     </div>
                   )}
                 </div>

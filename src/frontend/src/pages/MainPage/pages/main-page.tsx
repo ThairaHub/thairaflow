@@ -55,7 +55,7 @@ export default function CollectionPage(): JSX.Element {
 
   return (
     <SidebarProvider width="280px">
-      {flows &&
+      {/* {flows &&
         examples &&
         folders &&
         (flows?.length !== examples?.length || folders?.length > 1) && (
@@ -71,7 +71,7 @@ export default function CollectionPage(): JSX.Element {
               navigate("files");
             }}
           />
-        )}
+        )} */}
       <main className="flex h-full w-full overflow-hidden">
         {flows && examples && folders ? (
           <div
