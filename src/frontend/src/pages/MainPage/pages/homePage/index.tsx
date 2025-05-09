@@ -16,7 +16,10 @@ import ModalsComponent from "../../components/modalsComponent";
 import useFileDrop from "../../hooks/use-on-file-drop";
 import EmptyFolder from "../emptyFolder";
 import McpServerTab from "./components/McpServerTab";
+import CRMTab from "./components/CRMTab";
 import LandingPageTab from "./components/LandingPageTab";
+import IFrame from "./components/IFrame";
+
 
 const HomePage = ({ type }: { type: "flows" | "components" | "mcp" | "landing page" | "CRM"}) => {
   const [view, setView] = useState<"grid" | "list">(() => {
@@ -28,6 +31,7 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" | "landing pa
   const [pageIndex, setPageIndex] = useState(1);
   const [pageSize, setPageSize] = useState(12);
   const [search, setSearch] = useState("");
+  const [open, setOpen] = useState<boolean>(false);
 
   const [flowType, setFlowType] = useState<"flows" | "components" | "mcp" | "landing page" | "CRM">(
     type,
@@ -164,9 +168,19 @@ const HomePage = ({ type }: { type: "flows" | "components" | "mcp" | "landing pa
                       </a>
                       , or browse the store.
                     </div>
+                  ) : flowType === "landing page" ? (
+                    <>
+                    <LandingPageTab open={open} setOpen={setOpen} size={'x-large'} />
+                    <IFrame url={"http://localhost:53435"} height={"70vh"} borderRadius={undefined}/>
+                    </>
+                  ): flowType === "CRM" ? (
+                    <>
+                    <CRMTab open={open} setOpen={setOpen} size={'large-h-full'} />
+                    <IFrame url={"http://localhost:8000/crm/leads/view"} height={"70vh"} borderRadius={"20px"}/>
+                    </>
                   ) : (                  
                     <div className="pt-2 text-center text-sm text-secondary-foreground">
-                      <LandingPageTab folderName={folderName} />
+                          No flows in this project
                     </div>
                   )}
                 </div>

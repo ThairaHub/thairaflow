@@ -200,7 +200,7 @@
 
   .dark {
     --foreground: 204 100% 97.1%; /* topbar text colors, icons and secondary text colors*/
-    --background: 240 6% 10%; /* hsl(240, 6%, 10%) */
+    --background: 0 0 6; /* hsl(240, 6%, 10%) */
     --muted: 240 3.7% 15.9%; /* below components part and sidebar blocks internal highlights */
     --muted-foreground: 204 93.8% 93.7%; /* sidebar arrows, bottom bar and text unselected  */
     --card: 0 0% 3.9%;
