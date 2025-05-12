@@ -15,11 +15,9 @@ import { useAddComponent } from "@/hooks/use-add-component";
 import { nodeColorsName } from "@/utils/styleUtils";
 import { cn, isSupportedNodeTypes } from "@/utils/utils";
 import {
-<<<<<<< HEAD
-=======
+
   Background,
   BackgroundVariant,
->>>>>>> 1e9c9925e (Changed Colors and Page Background)
   Connection,
   Edge,
   OnNodeDrag,
@@ -599,15 +597,12 @@ export default function Page({
             onPaneClick={onPaneClick}
             onEdgeClick={handleEdgeClick}
           >
-<<<<<<< HEAD
-            <MemoizedBackground />
-=======
+
             {/* <Background size={2} gap={20} className="" /> */}
             <Background id="1" size={2} gap={50} className="" bgColor="#3c6294"/>
             <Background id="2" size={8} gap={1500} className="" color="#949cbc"  variant={BackgroundVariant.Lines} />
             <Background id="3" size={20} gap={1500} className="" color="#24477e" variant={BackgroundVariant.Cross} />
 
->>>>>>> 1e9c9925e (Changed Colors and Page Background)
             {!view && (
               <>
                 <MemoizedCanvasControls
