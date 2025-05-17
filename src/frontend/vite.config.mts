@@ -60,6 +60,7 @@ export default defineConfig(({ mode }) => {
       proxy: {
         ...proxyTargets,
       },
+      allowedHosts: ["sought-bass-nationally.ngrok-free.app"],
     },
   };
 });
